@@ -12,15 +12,14 @@ entity Gene {
     entrezGeneId Integer
     hugoSymbol String
     name String
-    status String
 }
 
 entity GeneAlias {
-    alias String
+    name String
 }
 
 entity GeneLabel {
-    label String
+    name String
 }
 
 entity VariantConsequence {
@@ -30,7 +29,6 @@ entity VariantConsequence {
 }
 
 entity ClinicalTrial {
-    trialId Integer
     nctId String
     cdrId String
     title String
@@ -53,7 +51,6 @@ entity PortalAlteration {
 }
 
 entity Article {
-    articleId Integer
     pmid String
     title String
     journal String
@@ -63,6 +60,8 @@ entity Article {
     pages String
     authors String
     elocationId String
+    abstractContent String
+    link String
 }
 
 entity DrugSynonym {
@@ -85,14 +84,14 @@ entity Country {
 
 entity Evidence {
     evidenceType EvidenceType
+    levelOfEvidence LevelOfEvidence
+    knownEffect KnownEffect
     cancerType String
     subtype String
-    shortDescription String
     description String
-    knownEffect KnownEffect
-    status String
+    additionalInfo String
     lastEdit ZonedDateTime
-    levelOfEvidence LevelOfEvidence
+    status String
 }
 
 entity NccnGuideline {
@@ -100,8 +99,8 @@ entity NccnGuideline {
     version String
     pages String
     category String
-    shortDescription String
     description String 
+    additionalInfo String
 }
 
 entity ApprovedIndication {
@@ -109,7 +108,19 @@ entity ApprovedIndication {
 }
 
 entity Treatment {
-    id Integer
+}
+
+entity Status {
+    statusType StatusType,
+    status String,
+}
+
+entity Comment {
+    content String
+}
+
+entity TimeStamp {
+    timeStamp ZonedDateTime
 }
 
 relationship ManyToMany {
@@ -127,7 +138,10 @@ relationship ManyToMany {
 
 relationship ManyToOne {
     Evidence{gene} to Gene,
-    Alteration{consequence} to VariantConsequence
+    Alteration{gene} to Gene,
+    Alteration{consequence(term)} to VariantConsequence,
+    PortalAlteration{gene} to Gene,
+    TimeStamp{user} to User
 }
 
 relationship OneToMany {
@@ -135,7 +149,26 @@ relationship OneToMany {
     Drug{atcCodes} to DrugAtcCode,
     Gene{geneAliases} to GeneAlias,
     Gene{geneLabels} to GeneLabel,
-    PortalAlteration{gene} to Gene
+    Evidence{statuses} to Status,
+    Gene{statuses} to Status,
+    Alteration{statuses} to Status,
+    Treatment{statuses} to Status,
+    Drug{statuses} to Status,
+    ClinicalTrial{statuses} to Status,
+    Comment{statuses} to Status,
+    Article{statuses} to Status,
+    Evidence{comments} to Comment,
+    Gene{comments} to Comment,
+    Alteration{comments} to Comment,
+    Treatment{comments} to Comment,
+    Drug{comments} to Comment,
+    ClinicalTrial{comments} to Comment,
+    Article{comments} to Comment
+}
+
+relationship OneToOne {
+    Status{timeStamp} to TimeStamp,
+    Comment{timeStamp} to TimeStamp
 }
 
 enum EvidenceType {
@@ -211,6 +244,15 @@ enum LevelOfEvidence {
     LEVEL_R3
 }
 
+enum StatusType {
+    CREATE,
+    UPDATE,
+    DELETE,
+    OBSOLETE,
+    READHAND,
+    VETTED,
+    RESOLVED
+}
 
 
 // Set pagination options
