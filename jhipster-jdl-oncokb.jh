@@ -1,0 +1,223 @@
+entity Alteration {
+    alteration String
+    name String
+    alterationType AlterationType
+    refResidues String
+    proteinStart Integer
+    poteinEnd Integer
+    variantResidues String
+}
+
+entity Gene {
+    entrezGeneId Integer
+    hugoSymbol String
+    name String
+    status String
+}
+
+entity GeneAlias {
+    alias String
+}
+
+entity GeneLabel {
+    label String
+}
+
+entity VariantConsequence {
+    term String
+    isGenerallyTruncating Boolean
+    description String
+}
+
+entity ClinicalTrial {
+    trialId Integer
+    nctId String
+    cdrId String
+    title String
+    purpose String
+    recruitingStatus String
+    eligibilityCriteria String
+    phase String
+    diseaseCondition String
+    lastChangedDate String
+}
+
+entity PortalAlteration {
+    cancerType String
+    cancerStudy String
+    sampleId String
+    proteinChange String
+    proteinStartPosition Integer
+    proteinEndPosition Integer
+    alterationType String
+}
+
+entity Article {
+    articleId Integer
+    pmid String
+    title String
+    journal String
+    pubDate String
+    volume String
+    issue String
+    pages String
+    authors String
+    elocationId String
+}
+
+entity DrugSynonym {
+    name String
+}
+
+entity DrugAtcCode {
+    name String
+}
+
+entity Drug {
+    drugName String
+    fdaApproved Boolean
+    description String
+}
+
+entity Country {
+    name String
+}
+
+entity Evidence {
+    evidenceType EvidenceType
+    cancerType String
+    subtype String
+    shortDescription String
+    description String
+    knownEffect KnownEffect
+    status String
+    lastEdit ZonedDateTime
+    levelOfEvidence LevelOfEvidence
+}
+
+entity NccnGuideline {
+    disease String
+    version String
+    pages String
+    category String
+    shortDescription String
+    description String 
+}
+
+entity ApprovedIndication {
+    approvedIndications String
+}
+
+entity Treatment {
+    id Integer
+}
+
+relationship ManyToMany {
+    ClinicalTrial{drugs} to Drug,
+    ClinicalTrial{countries} to Country,
+    Evidence{alterations} to Alteration,
+    Evidence{treatments} to Treatment,
+    Evidence{articles} to Article,
+    Evidence{clinicalTrials} to ClinicalTrial,
+    Evidence{nccnGuidelines} to NccnGuideline,
+    Treatment{drugs} to Drug,
+    Treatment{approvedIndications} to ApprovedIndication,
+    Alteration{portalAlterations} to PortalAlteration{alterations}
+}
+
+relationship ManyToOne {
+    Evidence{gene} to Gene,
+    Alteration{consequence} to VariantConsequence
+}
+
+relationship OneToMany {
+    Drug{synonyms} to DrugSynonym,
+    Drug{atcCodes} to DrugAtcCode,
+    Gene{geneAliases} to GeneAlias,
+    Gene{geneLabels} to GeneLabel,
+    PortalAlteration{gene} to Gene
+}
+
+enum EvidenceType {
+    GENE_SUMMARY,
+    MUTATION_SUMMARY,
+    TUMOR_TYPE_SUMMARY,
+    GENE_BACKGROUND,
+    ONCOGENIC,
+    MUTATION_EFFECT,
+    VUS,
+    PREVALENCE,
+    PROGNOSTIC_IMPLICATION,
+    NCCN_GUIDELINES,
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,
+    STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE,
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,
+    INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE,
+    CLINICAL_TRIAL
+}
+
+enum AlterationType {
+    MUTATION,
+    COPY_NUMBER_ALTERATION,
+    FUSION
+}
+
+enum Oncogenicity {
+    YES,
+    LIKELY,
+    LIKELY_NEUTRAL,
+    UNKNOWN
+}
+
+enum MutationEffect {
+    GAIN_OF_FUNCTION,
+    UNKNOWN,
+    LOSS_OF_FUNCTION,
+    LIKELY_LOSS_OF_FUNCTION,
+    LIKELY_GAIN_OF_FUNCTION,
+    NEUTRAL,
+    LIKELY_SWITCH_OF_FUNCTION,
+    SWITCH_OF_FUNCTION,
+    LIKELY_NEUTRAL
+}
+
+enum KnownEffect { 
+    YES,
+    LIKELY,
+    LIKELY_NEUTRAL,
+    UNKNOWN,
+    GAIN_OF_FUNCTION,
+    UNKNOWN,
+    LOSS_OF_FUNCTION,
+    LIKELY_LOSS_OF_FUNCTION,
+    LIKELY_GAIN_OF_FUNCTION,
+    NEUTRAL,
+    LIKELY_SWITCH_OF_FUNCTION,
+    SWITCH_OF_FUNCTION,
+    LIKELY_NEUTRAL
+}
+
+enum LevelOfEvidence {
+    LEVEL_0,
+    LEVEL_1,
+    LEVEL_2A,
+    LEVEL_2B,
+    LEVEL_3,
+    LEVEL_3A,
+    LEVEL_3B,
+    LEVEL_4,
+    LEVEL_R1,
+    LEVEL_R2,
+    LEVEL_R3
+}
+
+
+
+// Set pagination options
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+angularSuffix * with oncokb
