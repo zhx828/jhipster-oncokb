@@ -1,0 +1,84 @@
+<div>
+    <h2>Clinical Trials</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="clinical-trial.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Clinical Trial
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Nct Id</span></th>
+                    <th><span>Cdr Id</span></th>
+                    <th><span>Title</span></th>
+                    <th><span>Purpose</span></th>
+                    <th><span>Recruiting Status</span></th>
+                    <th><span>Eligibility Criteria</span></th>
+                    <th><span>Phase</span></th>
+                    <th><span>Disease Condition</span></th>
+                    <th><span>Last Changed Date</span></th>
+                    <th><span>Drugs</span></th>
+                    <th><span>Countries</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="clinicalTrial in vm.clinicalTrials track by clinicalTrial.id">
+                    <td><a ui-sref="clinical-trial-detail({id:clinicalTrial.id})">{{clinicalTrial.id}}</a></td>
+                    <td>{{clinicalTrial.nctId}}</td>
+                    <td>{{clinicalTrial.cdrId}}</td>
+                    <td>{{clinicalTrial.title}}</td>
+                    <td>{{clinicalTrial.purpose}}</td>
+                    <td>{{clinicalTrial.recruitingStatus}}</td>
+                    <td>{{clinicalTrial.eligibilityCriteria}}</td>
+                    <td>{{clinicalTrial.phase}}</td>
+                    <td>{{clinicalTrial.diseaseCondition}}</td>
+                    <td>{{clinicalTrial.lastChangedDate}}</td>
+                    <td>
+                        <span ng-repeat="drugs in clinicalTrial.drugs">
+                            <a class="form-control-static" ui-sref="drug-detail({id: drugs.id})">{{drugs.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <span ng-repeat="countries in clinicalTrial.countries">
+                            <a class="form-control-static" ui-sref="country-detail({id: countries.id})">{{countries.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="clinical-trial-detail({id:clinicalTrial.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="clinical-trial.edit({id:clinicalTrial.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="clinical-trial.delete({id:clinicalTrial.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

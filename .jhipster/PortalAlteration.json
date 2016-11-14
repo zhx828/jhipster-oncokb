@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gene",
+            "otherEntityName": "gene",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "alterations",
+            "otherEntityName": "alteration",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "portalAlterations"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cancerType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cancerStudy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sampleId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proteinChange",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proteinStartPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "proteinEndPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "alterationType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220247",
+    "entityTableName": "portal_alteration",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

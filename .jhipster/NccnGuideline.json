@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "disease",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pages",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220254",
+    "entityTableName": "nccn_guideline",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

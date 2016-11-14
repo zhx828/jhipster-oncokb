@@ -1,0 +1,8 @@
+package org.mskcc.cbio.oncokb.domain.enumeration;
+
+/**
+ * The KnownEffect enumeration.
+ */
+public enum KnownEffect {
+    YES,LIKELY,LIKELY_NEUTRAL,UNKNOWN,GAIN_OF_FUNCTION,LOSS_OF_FUNCTION,LIKELY_LOSS_OF_FUNCTION,LIKELY_GAIN_OF_FUNCTION,NEUTRAL,LIKELY_SWITCH_OF_FUNCTION,SWITCH_OF_FUNCTION
+}

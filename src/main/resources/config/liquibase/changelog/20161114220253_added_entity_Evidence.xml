@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Evidence.
+    -->
+    <changeSet id="20161114220253-1" author="jhipster">
+        <createTable tableName="evidence">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="evidence_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="level_of_evidence" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="known_effect" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="cancer_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="subtype" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="additional_info" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="last_edit" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="gene_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="evidence" columnName="last_edit" columnDataType="datetime"/>
+        
+        <createTable tableName="evidence_alterations">
+            <column name="alterations_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evidences_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="evidences_id, alterations_id" tableName="evidence_alterations"/>
+        
+        <createTable tableName="evidence_treatments">
+            <column name="treatments_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evidences_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="evidences_id, treatments_id" tableName="evidence_treatments"/>
+        
+        <createTable tableName="evidence_articles">
+            <column name="articles_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evidences_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="evidences_id, articles_id" tableName="evidence_articles"/>
+        
+        <createTable tableName="evidence_clinical_trials">
+            <column name="clinical_trials_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evidences_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="evidences_id, clinical_trials_id" tableName="evidence_clinical_trials"/>
+        
+        <createTable tableName="evidence_nccn_guidelines">
+            <column name="nccn_guidelines_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evidences_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="evidences_id, nccn_guidelines_id" tableName="evidence_nccn_guidelines"/>
+        
+    </changeSet>
+</databaseChangeLog>

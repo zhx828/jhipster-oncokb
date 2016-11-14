@@ -1,0 +1,144 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEvidenceLabel">Create or edit a Evidence</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.evidence.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.evidence.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_evidenceType">Evidence Type</label>
+            <select class="form-control" name="evidenceType" ng-model="vm.evidence.evidenceType" id="field_evidenceType">
+                <option value="GENE_SUMMARY" data-translate="oncokbApp.EvidenceType.GENE_SUMMARY">GENE_SUMMARY</option>
+                <option value="MUTATION_SUMMARY" data-translate="oncokbApp.EvidenceType.MUTATION_SUMMARY">MUTATION_SUMMARY</option>
+                <option value="TUMOR_TYPE_SUMMARY" data-translate="oncokbApp.EvidenceType.TUMOR_TYPE_SUMMARY">TUMOR_TYPE_SUMMARY</option>
+                <option value="GENE_BACKGROUND" data-translate="oncokbApp.EvidenceType.GENE_BACKGROUND">GENE_BACKGROUND</option>
+                <option value="ONCOGENIC">ONCOGENIC</option>
+                <option value="MUTATION_EFFECT" data-translate="oncokbApp.EvidenceType.MUTATION_EFFECT">MUTATION_EFFECT</option>
+                <option value="VUS">VUS</option>
+                <option value="PREVALENCE">PREVALENCE</option>
+                <option value="PROGNOSTIC_IMPLICATION" data-translate="oncokbApp.EvidenceType.PROGNOSTIC_IMPLICATION">PROGNOSTIC_IMPLICATION</option>
+                <option value="NCCN_GUIDELINES" data-translate="oncokbApp.EvidenceType.NCCN_GUIDELINES">NCCN_GUIDELINES</option>
+                <option value="STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY" data-translate="oncokbApp.EvidenceType.STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY">STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY</option>
+                <option value="STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE" data-translate="oncokbApp.EvidenceType.STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE">STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE</option>
+                <option value="INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY" data-translate="oncokbApp.EvidenceType.INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY">INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY</option>
+                <option value="INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE" data-translate="oncokbApp.EvidenceType.INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE">INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE</option>
+                <option value="CLINICAL_TRIAL" data-translate="oncokbApp.EvidenceType.CLINICAL_TRIAL">CLINICAL_TRIAL</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_levelOfEvidence">Level Of Evidence</label>
+            <select class="form-control" name="levelOfEvidence" ng-model="vm.evidence.levelOfEvidence" id="field_levelOfEvidence">
+                <option value="LEVEL_0" data-translate="oncokbApp.LevelOfEvidence.LEVEL_0">LEVEL_0</option>
+                <option value="LEVEL_1" data-translate="oncokbApp.LevelOfEvidence.LEVEL_1">LEVEL_1</option>
+                <option value="LEVEL_2A" data-translate="oncokbApp.LevelOfEvidence.LEVEL_2A">LEVEL_2A</option>
+                <option value="LEVEL_2B" data-translate="oncokbApp.LevelOfEvidence.LEVEL_2B">LEVEL_2B</option>
+                <option value="LEVEL_3" data-translate="oncokbApp.LevelOfEvidence.LEVEL_3">LEVEL_3</option>
+                <option value="LEVEL_3A" data-translate="oncokbApp.LevelOfEvidence.LEVEL_3A">LEVEL_3A</option>
+                <option value="LEVEL_3B" data-translate="oncokbApp.LevelOfEvidence.LEVEL_3B">LEVEL_3B</option>
+                <option value="LEVEL_4" data-translate="oncokbApp.LevelOfEvidence.LEVEL_4">LEVEL_4</option>
+                <option value="LEVEL_R1" data-translate="oncokbApp.LevelOfEvidence.LEVEL_R1">LEVEL_R1</option>
+                <option value="LEVEL_R2" data-translate="oncokbApp.LevelOfEvidence.LEVEL_R2">LEVEL_R2</option>
+                <option value="LEVEL_R3" data-translate="oncokbApp.LevelOfEvidence.LEVEL_R3">LEVEL_R3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_knownEffect">Known Effect</label>
+            <select class="form-control" name="knownEffect" ng-model="vm.evidence.knownEffect" id="field_knownEffect">
+                <option value="YES">YES</option>
+                <option value="LIKELY">LIKELY</option>
+                <option value="LIKELY_NEUTRAL" data-translate="oncokbApp.KnownEffect.LIKELY_NEUTRAL">LIKELY_NEUTRAL</option>
+                <option value="UNKNOWN">UNKNOWN</option>
+                <option value="GAIN_OF_FUNCTION" data-translate="oncokbApp.KnownEffect.GAIN_OF_FUNCTION">GAIN_OF_FUNCTION</option>
+                <option value="LOSS_OF_FUNCTION" data-translate="oncokbApp.KnownEffect.LOSS_OF_FUNCTION">LOSS_OF_FUNCTION</option>
+                <option value="LIKELY_LOSS_OF_FUNCTION" data-translate="oncokbApp.KnownEffect.LIKELY_LOSS_OF_FUNCTION">LIKELY_LOSS_OF_FUNCTION</option>
+                <option value="LIKELY_GAIN_OF_FUNCTION" data-translate="oncokbApp.KnownEffect.LIKELY_GAIN_OF_FUNCTION">LIKELY_GAIN_OF_FUNCTION</option>
+                <option value="NEUTRAL">NEUTRAL</option>
+                <option value="LIKELY_SWITCH_OF_FUNCTION" data-translate="oncokbApp.KnownEffect.LIKELY_SWITCH_OF_FUNCTION">LIKELY_SWITCH_OF_FUNCTION</option>
+                <option value="SWITCH_OF_FUNCTION" data-translate="oncokbApp.KnownEffect.SWITCH_OF_FUNCTION">SWITCH_OF_FUNCTION</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cancerType">Cancer Type</label>
+            <input type="text" class="form-control" name="cancerType" id="field_cancerType"
+                    ng-model="vm.evidence.cancerType"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_subtype">Subtype</label>
+            <input type="text" class="form-control" name="subtype" id="field_subtype"
+                    ng-model="vm.evidence.subtype"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.evidence.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_additionalInfo">Additional Info</label>
+            <input type="text" class="form-control" name="additionalInfo" id="field_additionalInfo"
+                    ng-model="vm.evidence.additionalInfo"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastEdit">Last Edit</label>
+                <div class="input-group">
+                    <input id="field_lastEdit" type="text" class="form-control" name="lastEdit" datetime-picker="{{dateformat}}" ng-model="vm.evidence.lastEdit" is-open="vm.datePickerOpenStatus.lastEdit"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('lastEdit')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.evidence.status"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_gene">Gene</label>
+            <select class="form-control" id="field_gene" name="gene" ng-model="vm.evidence.gene" ng-options="gene as gene.id for gene in vm.genes track by gene.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_alterations">Alterations</label>
+            <select class="form-control" id="field_alterations" multiple name="alterations" ng-model="vm.evidence.alterations" ng-options="alteration as alteration.id for alteration in vm.alterations track by alteration.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_treatments">Treatments</label>
+            <select class="form-control" id="field_treatments" multiple name="treatments" ng-model="vm.evidence.treatments" ng-options="treatment as treatment.id for treatment in vm.treatments track by treatment.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_articles">Articles</label>
+            <select class="form-control" id="field_articles" multiple name="articles" ng-model="vm.evidence.articles" ng-options="article as article.id for article in vm.articles track by article.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_clinicalTrials">Clinical Trials</label>
+            <select class="form-control" id="field_clinicalTrials" multiple name="clinicalTrials" ng-model="vm.evidence.clinicalTrials" ng-options="clinicalTrial as clinicalTrial.id for clinicalTrial in vm.clinicaltrials track by clinicalTrial.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_nccnGuidelines">Nccn Guidelines</label>
+            <select class="form-control" id="field_nccnGuidelines" multiple name="nccnGuidelines" ng-model="vm.evidence.nccnGuidelines" ng-options="nccnGuideline as nccnGuideline.id for nccnGuideline in vm.nccnguidelines track by nccnGuideline.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

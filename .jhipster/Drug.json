@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "synonyms",
+            "otherEntityName": "drugSynonym",
+            "otherEntityRelationshipName": "drug"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atcCodes",
+            "otherEntityName": "drugAtcCode",
+            "otherEntityRelationshipName": "drug"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuses",
+            "otherEntityName": "status",
+            "otherEntityRelationshipName": "drug"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "drug"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "drugName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fdaApproved",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220251",
+    "entityTableName": "drug",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

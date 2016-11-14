@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuses",
+            "otherEntityName": "status",
+            "otherEntityRelationshipName": "clinicalTrial"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "clinicalTrial"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "drugs",
+            "otherEntityName": "drug",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "countries",
+            "otherEntityName": "country",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nctId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cdrId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "purpose",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recruitingStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eligibilityCriteria",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phase",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diseaseCondition",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastChangedDate",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220246",
+    "entityTableName": "clinical_trial",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

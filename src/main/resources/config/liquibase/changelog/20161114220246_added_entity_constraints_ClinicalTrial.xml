@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity ClinicalTrial.
+    -->
+    <changeSet id="20161114220246-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="clinical_trials_id"
+                                 baseTableName="clinical_trial_drugs"
+                                 constraintName="fk_clinical_trial_drugs_clinical_trials_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clinical_trial"/>
+        <addForeignKeyConstraint baseColumnNames="drugs_id"
+                                 baseTableName="clinical_trial_drugs"
+                                 constraintName="fk_clinical_trial_drugs_drugs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="drug"/>
+        
+        <addForeignKeyConstraint baseColumnNames="clinical_trials_id"
+                                 baseTableName="clinical_trial_countries"
+                                 constraintName="fk_clinical_trial_countries_clinical_trials_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clinical_trial"/>
+        <addForeignKeyConstraint baseColumnNames="countries_id"
+                                 baseTableName="clinical_trial_countries"
+                                 constraintName="fk_clinical_trial_countries_countries_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+        
+    </changeSet>
+</databaseChangeLog>

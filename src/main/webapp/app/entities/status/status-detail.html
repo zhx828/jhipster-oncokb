@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span>Status</span> {{vm.status.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Status Type</span></dt>
+        <dd>
+            <span>{{vm.status.statusType}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{vm.status.status}}</span>
+        </dd>
+        <dt><span>Alteration</span></dt>
+        <dd>
+            <a ui-sref="alteration-detail({id:vm.status.alteration.id})">{{vm.status.alteration.id}}</a>
+        </dd>
+        <dt><span>Gene</span></dt>
+        <dd>
+            <a ui-sref="gene-detail({id:vm.status.gene.id})">{{vm.status.gene.id}}</a>
+        </dd>
+        <dt><span>Clinical Trial</span></dt>
+        <dd>
+            <a ui-sref="clinical-trial-detail({id:vm.status.clinicalTrial.id})">{{vm.status.clinicalTrial.id}}</a>
+        </dd>
+        <dt><span>Article</span></dt>
+        <dd>
+            <a ui-sref="article-detail({id:vm.status.article.id})">{{vm.status.article.id}}</a>
+        </dd>
+        <dt><span>Drug</span></dt>
+        <dd>
+            <a ui-sref="drug-detail({id:vm.status.drug.id})">{{vm.status.drug.id}}</a>
+        </dd>
+        <dt><span>Evidence</span></dt>
+        <dd>
+            <a ui-sref="evidence-detail({id:vm.status.evidence.id})">{{vm.status.evidence.id}}</a>
+        </dd>
+        <dt><span>Treatment</span></dt>
+        <dd>
+            <a ui-sref="treatment-detail({id:vm.status.treatment.id})">{{vm.status.treatment.id}}</a>
+        </dd>
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <a ui-sref="time-stamp-detail({id:vm.status.timeStamp.id})">{{vm.status.timeStamp.id}}</a>
+        </dd>
+        <dt><span>Comment</span></dt>
+        <dd>
+            <a ui-sref="comment-detail({id:vm.status.comment.id})">{{vm.status.comment.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="status-detail.edit({id:vm.status.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

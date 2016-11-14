@@ -1,0 +1,72 @@
+<div>
+    <h2>Portal Alterations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="portal-alteration.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Portal Alteration
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Cancer Type</span></th>
+                    <th><span>Cancer Study</span></th>
+                    <th><span>Sample Id</span></th>
+                    <th><span>Protein Change</span></th>
+                    <th><span>Protein Start Position</span></th>
+                    <th><span>Protein End Position</span></th>
+                    <th><span>Alteration Type</span></th>
+                    <th><span>Gene</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="portalAlteration in vm.portalAlterations track by portalAlteration.id">
+                    <td><a ui-sref="portal-alteration-detail({id:portalAlteration.id})">{{portalAlteration.id}}</a></td>
+                    <td>{{portalAlteration.cancerType}}</td>
+                    <td>{{portalAlteration.cancerStudy}}</td>
+                    <td>{{portalAlteration.sampleId}}</td>
+                    <td>{{portalAlteration.proteinChange}}</td>
+                    <td>{{portalAlteration.proteinStartPosition}}</td>
+                    <td>{{portalAlteration.proteinEndPosition}}</td>
+                    <td>{{portalAlteration.alterationType}}</td>
+                    <td>
+                        <a ui-sref="gene-detail({id:portalAlteration.gene.id})">{{portalAlteration.gene.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="portal-alteration-detail({id:portalAlteration.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="portal-alteration.edit({id:portalAlteration.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="portal-alteration.delete({id:portalAlteration.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

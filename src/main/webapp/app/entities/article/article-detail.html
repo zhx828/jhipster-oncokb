@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span>Article</span> {{vm.article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Pmid</span></dt>
+        <dd>
+            <span>{{vm.article.pmid}}</span>
+        </dd>
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{vm.article.title}}</span>
+        </dd>
+        <dt><span>Journal</span></dt>
+        <dd>
+            <span>{{vm.article.journal}}</span>
+        </dd>
+        <dt><span>Pub Date</span></dt>
+        <dd>
+            <span>{{vm.article.pubDate}}</span>
+        </dd>
+        <dt><span>Volume</span></dt>
+        <dd>
+            <span>{{vm.article.volume}}</span>
+        </dd>
+        <dt><span>Issue</span></dt>
+        <dd>
+            <span>{{vm.article.issue}}</span>
+        </dd>
+        <dt><span>Pages</span></dt>
+        <dd>
+            <span>{{vm.article.pages}}</span>
+        </dd>
+        <dt><span>Authors</span></dt>
+        <dd>
+            <span>{{vm.article.authors}}</span>
+        </dd>
+        <dt><span>Elocation Id</span></dt>
+        <dd>
+            <span>{{vm.article.elocationId}}</span>
+        </dd>
+        <dt><span>Abstract Content</span></dt>
+        <dd>
+            <span>{{vm.article.abstractContent}}</span>
+        </dd>
+        <dt><span>Link</span></dt>
+        <dd>
+            <span>{{vm.article.link}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="article-detail.edit({id:vm.article.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,98 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myStatusLabel">Create or edit a Status</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.status.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.status.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_statusType">Status Type</label>
+            <select class="form-control" name="statusType" ng-model="vm.status.statusType" id="field_statusType">
+                <option value="CREATE">CREATE</option>
+                <option value="UPDATE">UPDATE</option>
+                <option value="DELETE">DELETE</option>
+                <option value="OBSOLETE">OBSOLETE</option>
+                <option value="READHAND">READHAND</option>
+                <option value="VETTED">VETTED</option>
+                <option value="RESOLVED">RESOLVED</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.status.status"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_alteration">Alteration</label>
+            <select class="form-control" id="field_alteration" name="alteration" ng-model="vm.status.alteration" ng-options="alteration as alteration.id for alteration in vm.alterations track by alteration.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_gene">Gene</label>
+            <select class="form-control" id="field_gene" name="gene" ng-model="vm.status.gene" ng-options="gene as gene.id for gene in vm.genes track by gene.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_clinicalTrial">Clinical Trial</label>
+            <select class="form-control" id="field_clinicalTrial" name="clinicalTrial" ng-model="vm.status.clinicalTrial" ng-options="clinicalTrial as clinicalTrial.id for clinicalTrial in vm.clinicaltrials track by clinicalTrial.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_article">Article</label>
+            <select class="form-control" id="field_article" name="article" ng-model="vm.status.article" ng-options="article as article.id for article in vm.articles track by article.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_drug">Drug</label>
+            <select class="form-control" id="field_drug" name="drug" ng-model="vm.status.drug" ng-options="drug as drug.id for drug in vm.drugs track by drug.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_evidence">Evidence</label>
+            <select class="form-control" id="field_evidence" name="evidence" ng-model="vm.status.evidence" ng-options="evidence as evidence.id for evidence in vm.evidences track by evidence.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_treatment">Treatment</label>
+            <select class="form-control" id="field_treatment" name="treatment" ng-model="vm.status.treatment" ng-options="treatment as treatment.id for treatment in vm.treatments track by treatment.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_timeStamp">Time Stamp</label>
+            <select class="form-control" id="field_timeStamp" name="timeStamp" ng-model="vm.status.timeStamp" ng-options="timeStamp as timeStamp.id for timeStamp in vm.timestamps | orderBy:'id' track by timeStamp.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_comment">Comment</label>
+            <select class="form-control" id="field_comment" name="comment" ng-model="vm.status.comment" ng-options="comment as comment.id for comment in vm.comments track by comment.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

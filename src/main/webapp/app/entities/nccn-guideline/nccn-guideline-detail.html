@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span>Nccn Guideline</span> {{vm.nccnGuideline.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Disease</span></dt>
+        <dd>
+            <span>{{vm.nccnGuideline.disease}}</span>
+        </dd>
+        <dt><span>Version</span></dt>
+        <dd>
+            <span>{{vm.nccnGuideline.version}}</span>
+        </dd>
+        <dt><span>Pages</span></dt>
+        <dd>
+            <span>{{vm.nccnGuideline.pages}}</span>
+        </dd>
+        <dt><span>Category</span></dt>
+        <dd>
+            <span>{{vm.nccnGuideline.category}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{vm.nccnGuideline.description}}</span>
+        </dd>
+        <dt><span>Additional Info</span></dt>
+        <dd>
+            <span>{{vm.nccnGuideline.additionalInfo}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="nccn-guideline-detail.edit({id:vm.nccnGuideline.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

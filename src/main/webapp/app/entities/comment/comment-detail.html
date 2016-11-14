@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span>Comment</span> {{vm.comment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Content</span></dt>
+        <dd>
+            <span>{{vm.comment.content}}</span>
+        </dd>
+        <dt><span>Alteration</span></dt>
+        <dd>
+            <a ui-sref="alteration-detail({id:vm.comment.alteration.id})">{{vm.comment.alteration.id}}</a>
+        </dd>
+        <dt><span>Gene</span></dt>
+        <dd>
+            <a ui-sref="gene-detail({id:vm.comment.gene.id})">{{vm.comment.gene.id}}</a>
+        </dd>
+        <dt><span>Clinical Trial</span></dt>
+        <dd>
+            <a ui-sref="clinical-trial-detail({id:vm.comment.clinicalTrial.id})">{{vm.comment.clinicalTrial.id}}</a>
+        </dd>
+        <dt><span>Article</span></dt>
+        <dd>
+            <a ui-sref="article-detail({id:vm.comment.article.id})">{{vm.comment.article.id}}</a>
+        </dd>
+        <dt><span>Drug</span></dt>
+        <dd>
+            <a ui-sref="drug-detail({id:vm.comment.drug.id})">{{vm.comment.drug.id}}</a>
+        </dd>
+        <dt><span>Evidence</span></dt>
+        <dd>
+            <a ui-sref="evidence-detail({id:vm.comment.evidence.id})">{{vm.comment.evidence.id}}</a>
+        </dd>
+        <dt><span>Treatment</span></dt>
+        <dd>
+            <a ui-sref="treatment-detail({id:vm.comment.treatment.id})">{{vm.comment.treatment.id}}</a>
+        </dd>
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <a ui-sref="time-stamp-detail({id:vm.comment.timeStamp.id})">{{vm.comment.timeStamp.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="comment-detail.edit({id:vm.comment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

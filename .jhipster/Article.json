@@ -1,0 +1,69 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuses",
+            "otherEntityName": "status",
+            "otherEntityRelationshipName": "article"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "article"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "pmid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "journal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pubDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "volume",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "issue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pages",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authors",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "elocationId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abstractContent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "link",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220248",
+    "entityTableName": "article",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

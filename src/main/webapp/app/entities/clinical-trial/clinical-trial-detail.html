@@ -1,0 +1,67 @@
+
+<div>
+    <h2><span>Clinical Trial</span> {{vm.clinicalTrial.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nct Id</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.nctId}}</span>
+        </dd>
+        <dt><span>Cdr Id</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.cdrId}}</span>
+        </dd>
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.title}}</span>
+        </dd>
+        <dt><span>Purpose</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.purpose}}</span>
+        </dd>
+        <dt><span>Recruiting Status</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.recruitingStatus}}</span>
+        </dd>
+        <dt><span>Eligibility Criteria</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.eligibilityCriteria}}</span>
+        </dd>
+        <dt><span>Phase</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.phase}}</span>
+        </dd>
+        <dt><span>Disease Condition</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.diseaseCondition}}</span>
+        </dd>
+        <dt><span>Last Changed Date</span></dt>
+        <dd>
+            <span>{{vm.clinicalTrial.lastChangedDate}}</span>
+        </dd>
+        <dt><span>Drugs</span></dt>
+        <dd>
+            <span ng-repeat="drugs in vm.clinicalTrial.drugs">
+                <a ui-sref="drug-detail({id: drugs.id})">{{drugs.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Countries</span></dt>
+        <dd>
+            <span ng-repeat="countries in vm.clinicalTrial.countries">
+                <a ui-sref="country-detail({id: countries.id})">{{countries.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="clinical-trial-detail.edit({id:vm.clinicalTrial.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

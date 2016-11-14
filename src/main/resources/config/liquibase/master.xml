@@ -5,6 +5,37 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220241_added_entity_Alteration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220242_added_entity_Gene.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220243_added_entity_GeneAlias.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220244_added_entity_GeneLabel.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220245_added_entity_VariantConsequence.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220246_added_entity_ClinicalTrial.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220247_added_entity_PortalAlteration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220248_added_entity_Article.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220249_added_entity_DrugSynonym.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220250_added_entity_DrugAtcCode.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220251_added_entity_Drug.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220252_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220253_added_entity_Evidence.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220254_added_entity_NccnGuideline.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220255_added_entity_ApprovedIndication.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220256_added_entity_Treatment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220257_added_entity_Status.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220258_added_entity_Comment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220259_added_entity_TimeStamp.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20161114220241_added_entity_constraints_Alteration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220243_added_entity_constraints_GeneAlias.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220244_added_entity_constraints_GeneLabel.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220246_added_entity_constraints_ClinicalTrial.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220247_added_entity_constraints_PortalAlteration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220249_added_entity_constraints_DrugSynonym.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220250_added_entity_constraints_DrugAtcCode.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220253_added_entity_constraints_Evidence.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220256_added_entity_constraints_Treatment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220257_added_entity_constraints_Status.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220258_added_entity_constraints_Comment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161114220259_added_entity_constraints_TimeStamp.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

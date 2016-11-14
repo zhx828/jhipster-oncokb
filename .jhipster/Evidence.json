@@ -1,0 +1,110 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuses",
+            "otherEntityName": "status",
+            "otherEntityRelationshipName": "evidence"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "evidence"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gene",
+            "otherEntityName": "gene",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "alterations",
+            "otherEntityName": "alteration",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "treatments",
+            "otherEntityName": "treatment",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "articles",
+            "otherEntityName": "article",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "clinicalTrials",
+            "otherEntityName": "clinicalTrial",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "nccnGuidelines",
+            "otherEntityName": "nccnGuideline",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "evidenceType",
+            "fieldType": "EvidenceType",
+            "fieldValues": "GENE_SUMMARY,MUTATION_SUMMARY,TUMOR_TYPE_SUMMARY,GENE_BACKGROUND,ONCOGENIC,MUTATION_EFFECT,VUS,PREVALENCE,PROGNOSTIC_IMPLICATION,NCCN_GUIDELINES,STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_SENSITIVITY,STANDARD_THERAPEUTIC_IMPLICATIONS_FOR_DRUG_RESISTANCE,INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_SENSITIVITY,INVESTIGATIONAL_THERAPEUTIC_IMPLICATIONS_DRUG_RESISTANCE,CLINICAL_TRIAL"
+        },
+        {
+            "fieldName": "levelOfEvidence",
+            "fieldType": "LevelOfEvidence",
+            "fieldValues": "LEVEL_0,LEVEL_1,LEVEL_2A,LEVEL_2B,LEVEL_3,LEVEL_3A,LEVEL_3B,LEVEL_4,LEVEL_R1,LEVEL_R2,LEVEL_R3"
+        },
+        {
+            "fieldName": "knownEffect",
+            "fieldType": "KnownEffect",
+            "fieldValues": "YES,LIKELY,LIKELY_NEUTRAL,UNKNOWN,GAIN_OF_FUNCTION,LOSS_OF_FUNCTION,LIKELY_LOSS_OF_FUNCTION,LIKELY_GAIN_OF_FUNCTION,NEUTRAL,LIKELY_SWITCH_OF_FUNCTION,SWITCH_OF_FUNCTION"
+        },
+        {
+            "fieldName": "cancerType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subtype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastEdit",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220253",
+    "entityTableName": "evidence",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

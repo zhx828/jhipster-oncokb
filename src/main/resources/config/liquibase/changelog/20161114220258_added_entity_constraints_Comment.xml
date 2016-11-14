@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Comment.
+    -->
+    <changeSet id="20161114220258-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="alteration_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_alteration_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="alteration"/>
+
+        <addForeignKeyConstraint baseColumnNames="gene_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_gene_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gene"/>
+
+        <addForeignKeyConstraint baseColumnNames="clinical_trial_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_clinical_trial_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clinical_trial"/>
+
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+
+        <addForeignKeyConstraint baseColumnNames="drug_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_drug_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="drug"/>
+
+        <addForeignKeyConstraint baseColumnNames="evidence_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_evidence_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+
+        <addForeignKeyConstraint baseColumnNames="treatment_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_treatment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="treatment"/>
+
+        <addForeignKeyConstraint baseColumnNames="time_stamp_id"
+                                 baseTableName="comment"
+                                 constraintName="fk_comment_time_stamp_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="time_stamp"/>
+
+    </changeSet>
+</databaseChangeLog>

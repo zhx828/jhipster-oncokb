@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPortalAlterationLabel">Create or edit a Portal Alteration</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.portalAlteration.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.portalAlteration.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cancerType">Cancer Type</label>
+            <input type="text" class="form-control" name="cancerType" id="field_cancerType"
+                    ng-model="vm.portalAlteration.cancerType"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cancerStudy">Cancer Study</label>
+            <input type="text" class="form-control" name="cancerStudy" id="field_cancerStudy"
+                    ng-model="vm.portalAlteration.cancerStudy"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sampleId">Sample Id</label>
+            <input type="text" class="form-control" name="sampleId" id="field_sampleId"
+                    ng-model="vm.portalAlteration.sampleId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_proteinChange">Protein Change</label>
+            <input type="text" class="form-control" name="proteinChange" id="field_proteinChange"
+                    ng-model="vm.portalAlteration.proteinChange"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_proteinStartPosition">Protein Start Position</label>
+            <input type="number" class="form-control" name="proteinStartPosition" id="field_proteinStartPosition"
+                    ng-model="vm.portalAlteration.proteinStartPosition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_proteinEndPosition">Protein End Position</label>
+            <input type="number" class="form-control" name="proteinEndPosition" id="field_proteinEndPosition"
+                    ng-model="vm.portalAlteration.proteinEndPosition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_alterationType">Alteration Type</label>
+            <input type="text" class="form-control" name="alterationType" id="field_alterationType"
+                    ng-model="vm.portalAlteration.alterationType"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_gene">Gene</label>
+            <select class="form-control" id="field_gene" name="gene" ng-model="vm.portalAlteration.gene" ng-options="gene as gene.id for gene in vm.genes track by gene.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

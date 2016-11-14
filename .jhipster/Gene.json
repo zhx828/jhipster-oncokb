@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "geneAliases",
+            "otherEntityName": "geneAlias",
+            "otherEntityRelationshipName": "gene"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "geneLabels",
+            "otherEntityName": "geneLabel",
+            "otherEntityRelationshipName": "gene"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuses",
+            "otherEntityName": "status",
+            "otherEntityRelationshipName": "gene"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "gene"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "entrezGeneId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hugoSymbol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220242",
+    "entityTableName": "gene",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

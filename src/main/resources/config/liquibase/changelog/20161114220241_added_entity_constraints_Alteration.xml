@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Alteration.
+    -->
+    <changeSet id="20161114220241-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="gene_id"
+                                 baseTableName="alteration"
+                                 constraintName="fk_alteration_gene_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gene"/>
+
+        <addForeignKeyConstraint baseColumnNames="consequence_id"
+                                 baseTableName="alteration"
+                                 constraintName="fk_alteration_consequence_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="variant_consequence"/>
+
+        <addForeignKeyConstraint baseColumnNames="alterations_id"
+                                 baseTableName="alteration_portal_alterations"
+                                 constraintName="fk_alteration_portal_alterations_alterations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="alteration"/>
+        <addForeignKeyConstraint baseColumnNames="portal_alterations_id"
+                                 baseTableName="alteration_portal_alterations"
+                                 constraintName="fk_alteration_portal_alterations_portal_alterations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="portal_alteration"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,88 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myClinicalTrialLabel">Create or edit a Clinical Trial</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.clinicalTrial.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.clinicalTrial.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nctId">Nct Id</label>
+            <input type="text" class="form-control" name="nctId" id="field_nctId"
+                    ng-model="vm.clinicalTrial.nctId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_cdrId">Cdr Id</label>
+            <input type="text" class="form-control" name="cdrId" id="field_cdrId"
+                    ng-model="vm.clinicalTrial.cdrId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.clinicalTrial.title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_purpose">Purpose</label>
+            <input type="text" class="form-control" name="purpose" id="field_purpose"
+                    ng-model="vm.clinicalTrial.purpose"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_recruitingStatus">Recruiting Status</label>
+            <input type="text" class="form-control" name="recruitingStatus" id="field_recruitingStatus"
+                    ng-model="vm.clinicalTrial.recruitingStatus"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_eligibilityCriteria">Eligibility Criteria</label>
+            <input type="text" class="form-control" name="eligibilityCriteria" id="field_eligibilityCriteria"
+                    ng-model="vm.clinicalTrial.eligibilityCriteria"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_phase">Phase</label>
+            <input type="text" class="form-control" name="phase" id="field_phase"
+                    ng-model="vm.clinicalTrial.phase"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_diseaseCondition">Disease Condition</label>
+            <input type="text" class="form-control" name="diseaseCondition" id="field_diseaseCondition"
+                    ng-model="vm.clinicalTrial.diseaseCondition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_lastChangedDate">Last Changed Date</label>
+            <input type="text" class="form-control" name="lastChangedDate" id="field_lastChangedDate"
+                    ng-model="vm.clinicalTrial.lastChangedDate"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label for="field_drugs">Drugs</label>
+            <select class="form-control" id="field_drugs" multiple name="drugs" ng-model="vm.clinicalTrial.drugs" ng-options="drug as drug.id for drug in vm.drugs track by drug.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_countries">Countries</label>
+            <select class="form-control" id="field_countries" multiple name="countries" ng-model="vm.clinicalTrial.countries" ng-options="country as country.id for country in vm.countries track by country.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

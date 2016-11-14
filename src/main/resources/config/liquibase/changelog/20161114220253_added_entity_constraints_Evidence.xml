@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Evidence.
+    -->
+    <changeSet id="20161114220253-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="gene_id"
+                                 baseTableName="evidence"
+                                 constraintName="fk_evidence_gene_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gene"/>
+
+        <addForeignKeyConstraint baseColumnNames="evidences_id"
+                                 baseTableName="evidence_alterations"
+                                 constraintName="fk_evidence_alterations_evidences_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+        <addForeignKeyConstraint baseColumnNames="alterations_id"
+                                 baseTableName="evidence_alterations"
+                                 constraintName="fk_evidence_alterations_alterations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="alteration"/>
+        
+        <addForeignKeyConstraint baseColumnNames="evidences_id"
+                                 baseTableName="evidence_treatments"
+                                 constraintName="fk_evidence_treatments_evidences_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+        <addForeignKeyConstraint baseColumnNames="treatments_id"
+                                 baseTableName="evidence_treatments"
+                                 constraintName="fk_evidence_treatments_treatments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="treatment"/>
+        
+        <addForeignKeyConstraint baseColumnNames="evidences_id"
+                                 baseTableName="evidence_articles"
+                                 constraintName="fk_evidence_articles_evidences_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+        <addForeignKeyConstraint baseColumnNames="articles_id"
+                                 baseTableName="evidence_articles"
+                                 constraintName="fk_evidence_articles_articles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+        
+        <addForeignKeyConstraint baseColumnNames="evidences_id"
+                                 baseTableName="evidence_clinical_trials"
+                                 constraintName="fk_evidence_clinical_trials_evidences_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+        <addForeignKeyConstraint baseColumnNames="clinical_trials_id"
+                                 baseTableName="evidence_clinical_trials"
+                                 constraintName="fk_evidence_clinical_trials_clinical_trials_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clinical_trial"/>
+        
+        <addForeignKeyConstraint baseColumnNames="evidences_id"
+                                 baseTableName="evidence_nccn_guidelines"
+                                 constraintName="fk_evidence_nccn_guidelines_evidences_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+        <addForeignKeyConstraint baseColumnNames="nccn_guidelines_id"
+                                 baseTableName="evidence_nccn_guidelines"
+                                 constraintName="fk_evidence_nccn_guidelines_nccn_guidelines_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nccn_guideline"/>
+        
+    </changeSet>
+</databaseChangeLog>

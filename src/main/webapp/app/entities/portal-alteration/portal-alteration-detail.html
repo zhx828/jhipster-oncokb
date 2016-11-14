@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Portal Alteration</span> {{vm.portalAlteration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Cancer Type</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.cancerType}}</span>
+        </dd>
+        <dt><span>Cancer Study</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.cancerStudy}}</span>
+        </dd>
+        <dt><span>Sample Id</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.sampleId}}</span>
+        </dd>
+        <dt><span>Protein Change</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.proteinChange}}</span>
+        </dd>
+        <dt><span>Protein Start Position</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.proteinStartPosition}}</span>
+        </dd>
+        <dt><span>Protein End Position</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.proteinEndPosition}}</span>
+        </dd>
+        <dt><span>Alteration Type</span></dt>
+        <dd>
+            <span>{{vm.portalAlteration.alterationType}}</span>
+        </dd>
+        <dt><span>Gene</span></dt>
+        <dd>
+            <a ui-sref="gene-detail({id:vm.portalAlteration.gene.id})">{{vm.portalAlteration.gene.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="portal-alteration-detail.edit({id:vm.portalAlteration.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,74 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuses",
+            "otherEntityName": "status",
+            "otherEntityRelationshipName": "alteration"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comments",
+            "otherEntityName": "comment",
+            "otherEntityRelationshipName": "alteration"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gene",
+            "otherEntityName": "gene",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "consequence",
+            "otherEntityName": "variantConsequence",
+            "otherEntityField": "term"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "alterations",
+            "relationshipName": "portalAlterations",
+            "otherEntityName": "portalAlteration",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "alteration",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "alterationType",
+            "fieldType": "AlterationType",
+            "fieldValues": "MUTATION,COPY_NUMBER_ALTERATION,FUSION"
+        },
+        {
+            "fieldName": "refResidues",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proteinStart",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "poteinEnd",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "variantResidues",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220241",
+    "entityTableName": "alteration",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

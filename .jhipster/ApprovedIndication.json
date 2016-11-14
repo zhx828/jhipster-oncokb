@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "approvedIndications",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161114220255",
+    "entityTableName": "approved_indication",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "angularSuffix": "oncokb"
+}

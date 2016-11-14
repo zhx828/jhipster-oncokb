@@ -1,0 +1,60 @@
+<div>
+    <h2>Drug Synonyms</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="drug-synonym.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Drug Synonym
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Drug</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="drugSynonym in vm.drugSynonyms track by drugSynonym.id">
+                    <td><a ui-sref="drug-synonym-detail({id:drugSynonym.id})">{{drugSynonym.id}}</a></td>
+                    <td>{{drugSynonym.name}}</td>
+                    <td>
+                        <a ui-sref="drug-detail({id:drugSynonym.drug.id})">{{drugSynonym.drug.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="drug-synonym-detail({id:drugSynonym.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="drug-synonym.edit({id:drugSynonym.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="drug-synonym.delete({id:drugSynonym.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

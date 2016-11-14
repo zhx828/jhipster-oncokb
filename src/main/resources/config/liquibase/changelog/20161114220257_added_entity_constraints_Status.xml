@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Status.
+    -->
+    <changeSet id="20161114220257-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="alteration_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_alteration_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="alteration"/>
+
+        <addForeignKeyConstraint baseColumnNames="gene_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_gene_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gene"/>
+
+        <addForeignKeyConstraint baseColumnNames="clinical_trial_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_clinical_trial_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clinical_trial"/>
+
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+
+        <addForeignKeyConstraint baseColumnNames="drug_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_drug_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="drug"/>
+
+        <addForeignKeyConstraint baseColumnNames="evidence_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_evidence_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evidence"/>
+
+        <addForeignKeyConstraint baseColumnNames="treatment_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_treatment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="treatment"/>
+
+        <addForeignKeyConstraint baseColumnNames="time_stamp_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_time_stamp_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="time_stamp"/>
+
+        <addForeignKeyConstraint baseColumnNames="comment_id"
+                                 baseTableName="status"
+                                 constraintName="fk_status_comment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="comment"/>
+
+    </changeSet>
+</databaseChangeLog>

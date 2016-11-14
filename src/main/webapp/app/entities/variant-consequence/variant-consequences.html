@@ -1,0 +1,60 @@
+<div>
+    <h2>Variant Consequences</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="variant-consequence.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Variant Consequence
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Term</span></th>
+                    <th><span>Is Generally Truncating</span></th>
+                    <th><span>Description</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="variantConsequence in vm.variantConsequences track by variantConsequence.id">
+                    <td><a ui-sref="variant-consequence-detail({id:variantConsequence.id})">{{variantConsequence.id}}</a></td>
+                    <td>{{variantConsequence.term}}</td>
+                    <td>{{variantConsequence.isGenerallyTruncating}}</td>
+                    <td>{{variantConsequence.description}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="variant-consequence-detail({id:variantConsequence.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="variant-consequence.edit({id:variantConsequence.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="variant-consequence.delete({id:variantConsequence.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
